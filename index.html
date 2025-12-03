@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Barışalım mı?</title>
+<style>
+    body {
+        background: #ffe6f2;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 120px;
+    }
+    h1 {
+        font-size: 32px;
+        color: #d63384;
+    }
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 10px;
+    }
+    #yesBtn {
+        background-color: #ff4d88;
+        color: white;
+    }
+    #noBtn {
+        background-color: #999;
+        color: white;
+        position: absolute;
+    }
+</style>
+</head>
+<body>
+
+<h1>Barışalım mı artık?</h1>
+
+<button id="yesBtn">Barışalım ❤️</button>
+<button id="noBtn">Barışmayalım ❌</button>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 120);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    yesBtn.addEventListener("click", () => {
+        location.href = "./love.html";     // 🔥 garanti çalışır yönlendirme
+    });
+</script>
+
+</body>
+</html>

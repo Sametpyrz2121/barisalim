@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Seni Seviyorum</title>
+
+<style>
+    body {
+        background: #ffe6f2;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    h1 {
+        font-size: 50px;
+        color: #ff0066;
+        margin-top: 100px;
+        opacity: 0;
+        animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        0% { transform: scale(0.5) translateY(-50px); opacity: 0; }
+        100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .photos {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .photos img {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 15px;
+        opacity: 0;
+        animation: fadeIn 2s ease forwards 1s;
+    }
+</style>
+</head>
+<body>
+
+<h1>Seni Seviyorum ❤️</h1>
+
+<div class="photos">
+    <img src="resimler/d1.jpg">
+    <img src="resimler/d2.jpg">
+    <img src="resimler/d3.jpg">
+</div>
+
+<script>
+function createConfetti() {
+    const c = document.createElement("div");
+    c.style.position = "absolute";
+    c.style.width = "10px";
+    c.style.height = "10px";
+    c.style.borderRadius = "2px";
+    c.style.left = Math.random() * innerWidth + "px";
+    c.style.top = "-20px";
+    c.style.background = ["#ff4d88","#ff99cc","#ff1a75","#ff66b3","#ff3385"][Math.floor(Math.random()*5)];
+    c.style.opacity = 0.9;
+    document.body.appendChild(c);
+
+    const d = Math.random()*3+2;
+    c.style.transition = `transform ${d}s linear`;
+    setTimeout(()=> {
+        c.style.transform = `translateY(${innerHeight+50}px) rotate(360deg)`;
+    },10);
+
+    setTimeout(()=> c.remove(), d*1000+500);
+}
+setInterval(createConfetti, 100);
+</script>
+
+</body>
+</html>
